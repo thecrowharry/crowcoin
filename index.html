@@ -1,3 +1,7 @@
+from pathlib import Path
+
+# Index mit verbessertem Hintergrundbild + eingebundenem Logo
+index_html = """
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -8,54 +12,59 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #111;
-      color: #f0f0f0;
       margin: 0;
       padding: 0;
-      background-image: url('https://upload.wikimedia.org/wikipedia/commons/6/6e/Football_pitch_diagram.svg');
+      background: linear-gradient(to bottom right, #202020, #3a3a3a);
+      background-image: url('https://images.unsplash.com/photo-1603079849413-fb14c1e73f6e?auto=format&fit=crop&w=1920&q=80');
       background-size: cover;
-      background-repeat: no-repeat;
       background-attachment: fixed;
+      color: #fff;
     }
     header {
-      background-color: rgba(0, 0, 0, 0.85);
+      background-color: rgba(0, 0, 0, 0.8);
       padding: 2rem;
       text-align: center;
     }
     header img {
-      width: 100px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
+      margin-bottom: 1rem;
+      border: 3px solid #0f0;
     }
-    header h1 {
-      margin-top: 1rem;
+    h1 {
       font-size: 2.5rem;
+      margin: 0;
     }
     section {
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: rgba(0, 0, 0, 0.75);
+      margin: 2rem auto;
       padding: 2rem;
-      margin: 1rem;
-      border-radius: 10px;
-    }
-    a {
-      color: #0f0;
+      max-width: 800px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
     }
     .btn {
+      display: inline-block;
       background-color: #0f0;
       color: #000;
-      padding: 1rem 2rem;
-      margin: 1rem 0;
-      display: inline-block;
-      text-decoration: none;
       font-weight: bold;
-      border-radius: 5px;
+      padding: 1rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      margin: 1rem 0.5rem;
     }
     .btn:hover {
       background-color: #bfff00;
     }
+    ul {
+      line-height: 1.8;
+    }
     footer {
       text-align: center;
+      padding: 1rem;
       font-size: 0.8rem;
-      color: #aaa;
+      background: rgba(0, 0, 0, 0.6);
       margin-top: 2rem;
     }
   </style>
@@ -75,18 +84,18 @@
 
   <section>
     <h2>Links</h2>
-    <p><a class="btn" href="https://app.uniswap.org/#/swap?outputCurrency=0xc5400E84c9bC0dCe3C196A2fBC2C265848a2f9d0" target="_blank">Jetzt auf Uniswap handeln</a></p>
-    <p><a href="https://etherscan.io/token/0xc5400E84c9bC0dCe3C196A2fBC2C265848a2f9d0" target="_blank">CrowCoin auf Etherscan ansehen</a></p>
-    <p><a class="btn" href="kaufen.html">CrowCoin mit € kaufen</a></p>
+    <a class="btn" href="https://app.uniswap.org/#/swap?outputCurrency=0xc5400E84c9bC0dCe3C196A2fBC2C265848a2f9d0" target="_blank">Jetzt auf Uniswap handeln</a>
+    <a class="btn" href="https://etherscan.io/token/0xc5400E84c9bC0dCe3C196A2fBC2C265848a2f9d0" target="_blank">Etherscan</a>
+    <a class="btn" href="kaufen.html">CrowCoin mit € kaufen</a>
   </section>
 
   <section>
     <h2>Tokenomics</h2>
     <ul>
-      <li>Total Supply: 1.000.000 CROW</li>
-      <li>Initial Price: 100.000 CROW = 1 ETH</li>
-      <li>Dezentral gelistet via Uniswap</li>
-      <li>100 % Ownership bei dir – volle Kontrolle!</li>
+      <li>🔢 Total Supply: 1.000.000 CROW</li>
+      <li>📈 Startkurs: 100.000 CROW = 1 ETH</li>
+      <li>🔓 Dezentral gelistet via Uniswap</li>
+      <li>🎯 Volle Kontrolle – kein zentraler Owner</li>
     </ul>
   </section>
 
@@ -95,3 +104,10 @@
   </footer>
 </body>
 </html>
+"""
+
+# Speichere Datei
+index_path = Path("/mnt/data/index.html")
+index_path.write_text(index_html)
+
+index_path.name
