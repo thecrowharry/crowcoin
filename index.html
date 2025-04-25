@@ -1,124 +1,89 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CrowCoin mit Euro kaufen</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #0e0e0e;
-      color: #fff;
-      margin: 0;
-      padding: 2rem;
-    }
-    .container {
-      max-width: 600px;
-      margin: 2rem auto;
-      background: #1e1e1e;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
-    }
-    h1 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    label {
-      font-weight: bold;
-    }
-    input, select, textarea {
-      padding: 0.8rem;
-      font-size: 1rem;
-      border: none;
-      border-radius: 6px;
-    }
-    button {
-      padding: 1rem;
-      background-color: #caa216;
-      color: #000;
-      font-weight: bold;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #ffcc00;
-    }
-    .footer, .paypal-info {
-      text-align: center;
-      margin-top: 2rem;
-      font-size: 0.9rem;
-      color: #aaa;
-    }
-    .live-price {
-      background: #2c2c2c;
-      padding: 1rem;
-      margin-top: 1rem;
-      text-align: center;
-      border-radius: 8px;
-      font-size: 1rem;
-      color: #f0f0f0;
-    }
-  </style>
-  <script>
-    async function fetchCrowPrice() {
-      const res = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=eur");
-      const data = await res.json();
-      const ethPriceEUR = data.ethereum.eur;
-      const crowPerEth = 100000; // Beispielwert aus deinem Pool
-      const crowPriceEUR = (ethPriceEUR / crowPerEth).toFixed(6);
-      document.getElementById("live-crow-price").innerText = `1 CROW = ~${crowPriceEUR} €`;
-    }
-    window.onload = fetchCrowPrice;
-  </script>
+    <meta charset="UTF-8">
+    <title>CrowCoin (CROW)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #111;
+            color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/6/6e/Football_pitch_diagram.svg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        header {
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 2rem;
+            text-align: center;
+        }
+        header img {
+            width: 100px;
+            border-radius: 50%;
+        }
+        header h1 {
+            margin-top: 1rem;
+            font-size: 2.5rem;
+        }
+        section {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 2rem;
+            margin: 1rem;
+            border-radius: 10px;
+        }
+        a {
+            color: #0f0;
+        }
+        .btn {
+            background-color: #0f0;
+            color: #000;
+            padding: 1rem 2rem;
+            margin: 1rem 0;
+            display: inline-block;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #aaa;
+            margin-top: 2rem;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>CrowCoin mit Euro kaufen</h1>
-    <p>Trage deine Infos ein und wir senden dir CrowCoins nach Zahlung via PayPal oder Überweisung.</p>
-
-    <div class="live-price">
-      <strong>Live-Preis:</strong> <span id="live-crow-price">Wird geladen...</span>
-    </div>
-
-    <form name="kaufCrowCoin" method="POST" data-netlify="true">
-      <label for="email">E-Mail-Adresse</label>
-      <input type="email" name="email" id="email" required>
-
-      <label for="wallet">Deine Wallet-Adresse (z. B. MetaMask)</label>
-      <input type="text" name="wallet" id="wallet" required>
-
-      <label for="betrag">Wieviel Euro möchtest du investieren?</label>
-      <select name="betrag" id="betrag" required>
-        <option value="10">10 € = ca. 1.000 CROW</option>
-        <option value="25">25 € = ca. 2.500 CROW</option>
-        <option value="50">50 € = ca. 5.000 CROW</option>
-        <option value="100">100 € = ca. 10.000 CROW</option>
-      </select>
-
-      <label for="nachricht">Nachricht oder Wunsch (optional)</label>
-      <textarea name="nachricht" id="nachricht" rows="3"></textarea>
-
-      <button type="submit">Jetzt kaufen</button>
-    </form>
-
-    <div class="paypal-info">
-      <p><strong>Zahlungsinformationen nach Absenden per E-Mail:</strong></p>
-      <p>PayPal: <code>paypal.me/thecrowharry</code><br> IBAN: <code>DE12 3456 7890 1234 5678 00</code><br> Verwendungszweck: Deine Wallet-Adresse</p>
-    </div>
-
-    <div class="footer">
-      Nach Zahlungseingang werden deine CrowCoins manuell übertragen.<br>
-      Für Fragen: <a href="mailto:thecrowharry@example.com" style="color:#ffcc00">thecrowharry@example.com</a>
-    </div>
-  </div>
+    <header>
+        <img src="logo.png" alt="CrowCoin Logo">
+        <h1>CrowCoin (CROW)</h1>
+        <p>Der faire Memecoin mit Herz, Humor & Heimatbezug</p>
+    </header>
+    <section>
+        <h2>Was ist CrowCoin?</h2>
+        <p>CrowCoin ist ein ERC-20 Token mit einer Idee: Dezentral, transparent, etwas Fußball, etwas Meme – aber mit echter Kontrolle.</p>
+        <p>Entstanden aus der Leidenschaft für Struktur, Stadion, Sicherheit – powered by MHK.</p>
+    </section>
+    <section>
+        <h2>Links</h2>
+        <p><a class="btn" href="https://app.uniswap.org/#/swap?outputCurrency=0xc5400E84c9bC0dCe3C196A2fBC2C265848a2f9d0" target="_blank">Jetzt auf Uniswap handeln</a></p>
+        <p><a href="https://etherscan.io/token/0xc5400E84c9bC0dCe3C196A2fBC2C265848a2f9d0" target="_blank">CrowCoin auf Etherscan ansehen</a></p>
+    </section>
+    <section>
+        <h2>Tokenomics</h2>
+        <ul>
+            <li>Total Supply: 1.000.000 CROW</li>
+            <li>Initial Price: 100.000 CROW = 1 ETH</li>
+            <li>Dezentral gelistet via Uniswap</li>
+            <li>100 % Ownership bei dir – volle Kontrolle!</li>
+        </ul>
+    </section>
+    <footer>
+        © 2025 CrowCoin | Founder: M.H.K. | Stadiongeist trifft Smart Contract
+    </footer>
 </body>
 </html>
