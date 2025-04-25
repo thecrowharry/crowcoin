@@ -4,7 +4,8 @@ from pathlib import Path
 index_html = """
 <!DOCTYPE html>
 <html lang="de">
-<head>
+<<style>…</style>
+<script>…</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CrowCoin (CROW)</title>
@@ -72,6 +73,8 @@ index_html = """
 <body>
   <header>
     <img src="logo.png">
+    <span class="kurs-live" id="crow-price">Lade Kurs...</span>
+
     <h1>CrowCoin (CROW)</h1>
     <p>Der faire Memecoin mit Herz, Humor & Heimatbezug</p>
   </header>
