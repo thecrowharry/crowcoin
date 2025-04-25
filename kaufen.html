@@ -83,30 +83,36 @@
 </head>
 <body>
   <h1>Unterstütze CrowCoin</h1>
-  <p>Sichere dir CrowCoins direkt per PayPal-Überweisung.</p>
+  <p>Sichere dir CrowCoins direkt per QR-Zahlung & Bestellformular.</p>
 
   <div class="info-box">
-    <p>📧 Offizielle Adresse:</p>
+    <p>📧 Offizielle Kontaktadresse:</p>
     <div class="email">crowcoin.mhk@gmail.com</div>
-    <p>Gib im Verwendungszweck bitte deine Wallet-Adresse an!</p>
+    <p>Für Rückfragen oder Support stehen wir gern zur Verfügung.</p>
   </div>
 
   <div class="qr-container">
-    <img src="paypal-crowcoin.png" alt="PayPal QR Code">
-    <p style="margin-top: 0.5rem;">Jetzt scannen & CrowCoin sichern!</p>
+    <img src="paypal-crowcoin.png" alt="CrowCoin QR Code">
+    <p style="margin-top: 0.5rem;">Jetzt QR-Code scannen & CROW sichern!</p>
   </div>
 
   <div class="kurs-box">
     <strong>Aktueller Kurs:</strong><br>
     <span style="font-size: 1.5rem;">1 € = 1.000 CROW</span><br>
-    (Preis festgelegt durch MHK, nicht börslich – Preisänderungen möglich)
+    (Preis durch MHK festgelegt – Änderungen möglich)
   </div>
 
-  <form>
-    <h2 style="text-align:center">Unverbindliche Anfrage</h2>
-    <label for="name">Name (optional):</label>
-    <input type="text" id="name" name="name">
-    
+  <form name="CrowCoinKauf" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="subject" value="CrowCoin Kaufanfrage">
+    <input type="hidden" name="form-name" value="CrowCoinKauf">
+    <input type="hidden" name="autoresponse" value="Vielen Dank für deine Anfrage. Wir melden uns schnellstmöglich zu deinem CrowCoin-Kauf. Deine MHK-CrowCoin-Crew.">
+
+    <p style="display:none">
+      <label>Don’t fill this out: <input name="bot-field"></label>
+    </p>
+
+    <h2 style="text-align:center">Bestellanfrage</h2>
+
     <label for="email">Deine E-Mail-Adresse:</label>
     <input type="email" id="email" name="email" required>
 
@@ -116,8 +122,8 @@
     <label for="wallet">Deine Wallet-Adresse (ERC-20):</label>
     <textarea id="wallet" name="wallet" rows="2" required></textarea>
 
-    <p><em>Die Zahlung erfolgt manuell per PayPal an <strong>crowcoin.mhk@gmail.com</strong></em></p>
-    <p><em>Nach Geldeingang wird dir CROW gesendet.</em></p>
+    <p><em>Nach deiner Zahlung (via QR) senden wir dir deine CROW zu.</em></p>
+    <button type="submit">Anfrage senden</button>
   </form>
 
   <a class="btn" href="index.html">⬅ Zurück zur Startseite</a>
