@@ -77,6 +77,19 @@
       border: none;
       margin-bottom: 1rem;
     }
+    button {
+      background-color: #0f0;
+      color: #000;
+      font-weight: bold;
+      padding: 0.8rem 2rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #bfff00;
+    }
     a.btn {
       display: inline-block;
       margin-top: 2rem;
@@ -129,7 +142,7 @@
       <p style="margin-top: 0.5rem;">Jetzt scannen & CrowCoin sichern!</p>
     </div>
 
-    <form>
+    <form name="crowcoin-formular" method="POST" data-netlify="true">
       <h2 style="text-align:center">Unverbindliche Anfrage</h2>
       <label for="name">Name (optional):</label>
       <input type="text" id="name" name="name">
@@ -143,8 +156,12 @@
       <label for="wallet">Deine Wallet-Adresse (ERC-20):</label>
       <textarea id="wallet" name="wallet" rows="2" required></textarea>
 
-      <p><em>Die Zahlung erfolgt manuell per PayPal an <strong>hagi1@gmx.de</strong></em></p>
-      <p><em>Nach Geldeingang wird dir CROW von Crow gesendet.</em></p>
+      <p><em>Die Zahlung erfolgt manuell per PayPal an <strong>crowcoin.mhk@gmail.com</strong></em></p>
+      <p><em>Nach Geldeingang wird dir CROW gesendet.</em></p>
+
+      <div style="text-align:center">
+        <button type="submit">Anfrage absenden</button>
+      </div>
     </form>
 
     <a class="btn" href="index.html">⬅ Zurück zur Startseite</a>
