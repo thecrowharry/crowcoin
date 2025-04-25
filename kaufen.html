@@ -3,123 +3,71 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
+  <title>CrowCoin kaufen – Support CrowCoin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CrowCoin kaufen mit Euro</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: #0e0e0e;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #0f0f0f, #1a1a1a);
       color: #fff;
-      margin: 0;
+      text-align: center;
       padding: 2rem;
-    }
-    .container {
-      max-width: 600px;
-      margin: 2rem auto;
-      background: #1e1e1e;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
     }
     h1 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 1rem;
+      color: #0f0;
     }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    label {
-      font-weight: bold;
-    }
-    input, select, textarea {
-      padding: 0.8rem;
-      font-size: 1rem;
-      border: none;
-      border-radius: 6px;
-    }
-    button {
-      padding: 1rem;
-      background-color: #caa216;
-      color: #000;
-      font-weight: bold;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #ffcc00;
-    }
-    .footer, .paypal-info {
-      text-align: center;
+    .qr-container {
       margin-top: 2rem;
-      font-size: 0.9rem;
-      color: #aaa;
     }
-    .live-price {
-      background: #2c2c2c;
-      padding: 1rem;
-      margin-top: 1rem;
-      text-align: center;
-      border-radius: 8px;
-      font-size: 1rem;
-      color: #f0f0f0;
+    .qr-container img {
+      width: 220px;
+      border: 6px solid #0f0;
+      border-radius: 16px;
+      background: white;
+      padding: 6px;
+    }
+    .info-box {
+      background-color: rgba(255,255,255,0.1);
+      padding: 1.5rem;
+      margin: 2rem auto;
+      border-radius: 12px;
+      max-width: 500px;
+    }
+    .email {
+      font-size: 1.2rem;
+      margin: 1rem 0;
+      color: #0ff;
+    }
+    a.btn {
+      display: inline-block;
+      margin-top: 2rem;
+      background-color: #0f0;
+      color: #000;
+      padding: 1rem 2rem;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+    a.btn:hover {
+      background-color: #bfff00;
     }
   </style>
-  <script>
-    async function fetchCrowPrice() {
-      const res = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=eur");
-      const data = await res.json();
-      const ethPriceEUR = data.ethereum.eur;
-      const crowPerEth = 100000;
-      const crowPriceEUR = (ethPriceEUR / crowPerEth).toFixed(6);
-      document.getElementById("live-crow-price").innerText = `1 CROW = ~${crowPriceEUR} €`;
-    }
-    window.onload = fetchCrowPrice;
-  </script>
 </head>
 <body>
-  <div class="container">
-    <h1>CrowCoin mit Euro kaufen</h1>
-    <p>Trage deine Infos ein und wir senden dir CrowCoins nach Zahlung via PayPal oder Überweisung.</p>
+  <h1>Unterstütze CrowCoin</h1>
+  <p>Sichere dir CrowCoins direkt per PayPal-Überweisung.</p>
 
-    <div class="live-price">
-      <strong>Live-Preis:</strong> <span id="live-crow-price">Wird geladen...</span>
-    </div>
-
-    <form name="kaufCrowCoin" method="POST" data-netlify="true">
-      <label for="email">E-Mail-Adresse</label>
-      <input type="email" name="email" id="email" required>
-
-      <label for="wallet">Deine Wallet-Adresse (z. B. MetaMask)</label>
-      <input type="text" name="wallet" id="wallet" required>
-
-      <label for="betrag">Wieviel Euro möchtest du investieren?</label>
-      <select name="betrag" id="betrag" required>
-        <option value="10">10 € = ca. 1.000 CROW</option>
-        <option value="25">25 € = ca. 2.500 CROW</option>
-        <option value="50">50 € = ca. 5.000 CROW</option>
-        <option value="100">100 € = ca. 10.000 CROW</option>
-      </select>
-
-      <label for="nachricht">Nachricht oder Wunsch (optional)</label>
-      <textarea name="nachricht" id="nachricht" rows="3"></textarea>
-
-      <button type="submit">Jetzt kaufen</button>
-    </form>
-
-    <div class="paypal-info">
-      <p><strong>Zahlungsinformationen nach Absenden per E-Mail:</strong></p>
-      <p>PayPal: <code>paypal.me/thecrowharry</code><br> IBAN: <code>DE12 3456 7890 1234 5678 00</code><br> Verwendungszweck: Deine Wallet-Adresse</p>
-    </div>
-
-    <div class="footer">
-      Nach Zahlungseingang werden deine CrowCoins manuell übertragen.<br>
-      Für Fragen: <a href="mailto:thecrowharry@example.com" style="color:#ffcc00">thecrowharry@example.com</a>
-    </div>
+  <div class="info-box">
+    <p>📧 Offizielle Adresse:</p>
+    <div class="email">crowcoin.mhk@gmail.com</div>
+    <p>Gib im Verwendungszweck bitte deine Wallet-Adresse an!</p>
   </div>
+
+  <div class="qr-container">
+    <img src="paypal-crowcoin.png" alt="PayPal QR Code">
+    <p style="margin-top: 0.5rem;">Jetzt scannen & CrowCoin sichern!</p>
+  </div>
+
+  <a class="btn" href="index.html">⬅ Zurück zur Startseite</a>
 </body>
 </html>
